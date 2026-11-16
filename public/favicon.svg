@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="mq-bg" x1="4" y1="4" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="55%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="mq-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fde68a" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="mq-emerald" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6ee7b7" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded container -->
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#mq-bg)" />
+  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="14.25" stroke="#34d399" stroke-opacity="0.35" stroke-width="1.5" />
+
+  <!-- Subtle quantitative grid -->
+  <path d="M16 14V50M32 14V50M48 14V50M12 24H52M12 40H52" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+
+  <!-- 6 Probability spheres (2 rows of 3) -->
+  <circle cx="19" cy="22" r="4.5" fill="url(#mq-gold)" />
+  <circle cx="32" cy="22" r="4.5" fill="url(#mq-gold)" />
+  <circle cx="45" cy="22" r="4.5" fill="url(#mq-emerald)" />
+
+  <circle cx="19" cy="34" r="4.5" fill="url(#mq-emerald)" />
+  <circle cx="32" cy="34" r="4.5" fill="url(#mq-emerald)" />
+  <circle cx="45" cy="34" r="4.5" fill="url(#mq-gold)" />
+
+  <!-- Crisp Gaussian Bell Curve overlay -->
+  <path
+    d="M10 47 C 19 47, 23 18, 32 18 C 41 18, 45 47, 54 47"
+    stroke="#ffffff"
+    stroke-width="3.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Peak indicator dot -->
+  <circle cx="32" cy="18" r="2.2" fill="#fde68a" />
+</svg>

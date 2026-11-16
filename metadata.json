@@ -1,0 +1,6 @@
+{
+  "name": "MegaQuant — Análise Combinatória e Probabilidade para Mega-Sena",
+  "description": "Plataforma matemática de análise estatística, distribuição hipergeométrica, curva de Gauss, ciclo das dezenas e fechamentos combinatórios para a Mega-Sena.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
