@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import { FileDown, Lock, Unlock, BookOpen, CheckCircle2, ShieldCheck } from 'lucide-react';
-
-interface ContentDownloadSectionProps {
-  isPaidMember: boolean;
-  onTogglePaidLockPreview: () => void;
-}
+import { FileDown, CheckCircle2 } from 'lucide-react';
 
 interface PdfTopicItem {
   numero: string;
@@ -59,10 +54,7 @@ const PDF_TOPICS: PdfTopicItem[] = [
   },
 ];
 
-export const ContentDownloadSection: React.FC<ContentDownloadSectionProps> = ({
-  isPaidMember,
-  onTogglePaidLockPreview,
-}) => {
+export const ContentDownloadSection: React.FC = () => {
   const [downloadedFile, setDownloadedFile] = useState<string | null>(null);
 
   const handleDownloadNotification = (label: string) => {
@@ -72,18 +64,18 @@ export const ContentDownloadSection: React.FC<ContentDownloadSectionProps> = ({
 
   return (
     <section
-      aria-label="Download de Conteúdo Exclusivo"
+      aria-label="Download de Conteúdo"
       className="bg-white border border-slate-200 rounded-2xl sm:rounded-xl p-5 sm:p-6 space-y-5"
     >
       {/* Top Header of Download de Conteúdo */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div className="space-y-1">
           <div className="flex flex-wrap items-center gap-2 text-xs text-emerald-800 font-semibold">
-            <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0" />
-            <span>Área Exclusiva para Assinantes Pagantes</span>
+            <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
+            <span>Acesso Completo Liberado</span>
             <span className="text-slate-300">·</span>
             <span className="text-slate-500 font-normal">
-              Acesso liberado mediante pagamento confirmado
+              Todos os PDFs e ferramentas matemáticas disponíveis para quem possui o link
             </span>
           </div>
           <h2 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -94,7 +86,7 @@ export const ContentDownloadSection: React.FC<ContentDownloadSectionProps> = ({
           </p>
         </div>
 
-        {/* Direct Main PDF Files Bar + Lock Preview Toggle */}
+        {/* Direct Main PDF Files Bar */}
         <div className="flex flex-wrap items-center gap-2 self-start lg:self-center">
           <a
             href="/src/mega-sena-analise.pdf"
@@ -114,15 +106,6 @@ export const ContentDownloadSection: React.FC<ContentDownloadSectionProps> = ({
           >
             <FileDown className="w-3.5 h-3.5" /> Baixar mega-sena-matematica-e-estrategias.pdf
           </a>
-          <button
-            type="button"
-            onClick={onTogglePaidLockPreview}
-            className="min-h-[40px] px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium rounded-lg transition-colors flex items-center gap-1.5 whitespace-nowrap shrink-0"
-            title="Visualizar tela de bloqueio exibida para quem ainda não pagou"
-          >
-            <Lock className="w-3.5 h-3.5 text-slate-500" />
-            {isPaidMember ? 'Testar Bloqueio Pago' : 'Desbloquear'}
-          </button>
         </div>
       </div>
 

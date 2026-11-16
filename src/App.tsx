@@ -17,7 +17,6 @@ import { GaussianValidatorView } from './components/GaussianValidatorView';
 import { CycleAndHistoryView } from './components/CycleAndHistoryView';
 import { SavedTicketsModal, SavedTicketItem } from './components/SavedTicketsModal';
 import { ContentDownloadSection } from './components/ContentDownloadSection';
-import { PaidAccessGateModal } from './components/PaidAccessGateModal';
 import { Grid, Layers, Activity, RefreshCw } from 'lucide-react';
 
 type ActiveTab = 'matriz' | 'fechamentos' | 'gauss' | 'ciclo';
@@ -84,8 +83,6 @@ export default function App() {
   });
 
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
-  const [isPaidMember, setIsPaidMember] = useState<boolean>(true);
-  const [isPaywallModalOpen, setIsPaywallModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     try {
@@ -340,10 +337,7 @@ export default function App() {
         {/* Active View Content */}
         {activeTab === 'matriz' && (
           <div className="space-y-6 sm:space-y-8">
-            <ContentDownloadSection
-              isPaidMember={isPaidMember}
-              onTogglePaidLockPreview={() => setIsPaywallModalOpen(true)}
-            />
+            <ContentDownloadSection />
             <VolanteMatrixView
               stats={allStats}
               contests={contests}
@@ -396,7 +390,7 @@ export default function App() {
       <footer className="bg-white border-t border-slate-200 px-4 sm:px-6 py-5 mt-8">
         <div className="max-w-[1360px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 text-center sm:text-left">
           <div>
-            MegaQuant — Plataforma Exclusiva para Membros Pagantes · Estatística Hipergeométrica, Renovação de Poisson e Fechamentos Combinatórios.
+            MegaQuant — Acesso Completo Liberado · Estatística Hipergeométrica, Renovação de Poisson e Fechamentos Combinatórios.
           </div>
           <div className="font-mono tabular-nums">
             Nota Matemática: Cada sorteio é um evento independente; fechamentos e filtros gaussianos otimizam a cobertura relação custo/combinações.
@@ -479,15 +473,6 @@ export default function App() {
           setSavedTickets((prev) => prev.filter((item) => item.id !== id))
         }
         onClearAll={() => setSavedTickets([])}
-      />
-
-      {/* Paid Member Access Gate Modal */}
-      <PaidAccessGateModal
-        isOpen={isPaywallModalOpen}
-        onUnlockAccess={() => {
-          setIsPaidMember(true);
-          setIsPaywallModalOpen(false);
-        }}
       />
     </div>
   );
